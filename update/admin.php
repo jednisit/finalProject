@@ -8,6 +8,7 @@ include_once 'locations_model.php';
 <div id="map"></div>
 
 <!------ Include the above in your HEAD tag ---------->
+<!-- Script ที่เอาไว้ดูตำแหน่งที่ User Mark -->
 <script>
     var map;
     var marker;
@@ -48,7 +49,7 @@ include_once 'locations_model.php';
             })(marker, i));
         }
     }
-
+    /*<!-- ถ้า admin กด confirm จาก checkbox จะกำหนดว่าจุดนี้เป็นอีก 1 Marker -->*/
     function saveData() {
         var confirmed = document.getElementById('confirmed').checked ? 1 : 0;
         var id = document.getElementById('id').value;
@@ -81,7 +82,7 @@ include_once 'locations_model.php';
 
 
 </script>
-
+<!-- Form สำหรับ admin เพื่อดูว่าตำแหน่งที่ User แนะนำมานั้นต้องการเพิ่มสถานที่จริงหรือไ่-->
 <div style="display: none" id="form">
     <table class="map1">
         <tr>
@@ -91,9 +92,10 @@ include_once 'locations_model.php';
         </tr>
         <tr>
             <td><b>Confirm Location ?:</b></td>
+            <!-- เมื่อกดที่ checkbox จะนำค่าไปใส่ใน function saveData() -->
             <td><input id='confirmed' type='checkbox' name='confirmed'></td>
         </tr>
-
+        <!-- เมื่อกดปุ่ม save function saveData() จะทำงาน -->
         <tr><td></td><td><input type='button' value='Save' onclick='saveData()'/></td></tr>
     </table>
 </div>
